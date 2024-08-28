@@ -39,7 +39,7 @@ function SideNav() {
     },[])
   return (
     <div>
-      <div className='h-screen p-5 shadow-sm border' >
+      <div className='h-screen p-5 shadow-sm border bg-white' >
         <div className='flex justify-center p-2'>
             <Image src={'/txtlogo.png'} alt='logo' width={150} height={150}/>
         </div>
