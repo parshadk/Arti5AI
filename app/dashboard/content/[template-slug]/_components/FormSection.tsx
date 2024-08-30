@@ -4,14 +4,16 @@ import { TEMPLATE } from '@/app/dashboard/_components/TempList'
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Loader2Icon, LoaderCircle, LoaderIcon, LoaderPinwheel } from 'lucide-react';
 import Image from 'next/image';
 import React, { useState } from 'react'
 interface PROPS{
     selectedTemplate?:TEMPLATE;
-    userFormInput:any
+    userFormInput:any;
+    loading:boolean;
 }
 
-function FormSection({selectedTemplate,userFormInput}:PROPS) {
+function FormSection({selectedTemplate,userFormInput,loading}:PROPS) {
 
     const onSubmit=(e:any)=>{
         e.preventDefault();
@@ -26,9 +28,9 @@ function FormSection({selectedTemplate,userFormInput}:PROPS) {
     }
 
   return (
-    <div className='p-5 shadow-md border rounded-lg bg-white'>
+    <div className='p-5 shadow-md border rounded-lg bg-white '>
         {/* @ts-ignore */}
-      <Image src={selectedTemplate?.icon} alt='icon' width={70} height={70}/>
+      <Image src={selectedTemplate?.icon} alt='icon' width={50} height={50}/>
       <h2 className='font-bold text-2xl mb-2 text-primary'>{selectedTemplate?.name}</h2>
       <p className='text-gray-500 '>{selectedTemplate?.desc}</p>
 
@@ -44,7 +46,12 @@ function FormSection({selectedTemplate,userFormInput}:PROPS) {
             </div>
         ))}
 
-        <Button type='submit' className='w-[40%] py-6'>Generate Content</Button>
+        <Button type='submit' className='w-full py-6' disabled={loading}>
+          <div className='gap-2 flex'>
+            {loading && <Loader2Icon className='animate-spin'/>}
+            Generate Content  
+          </div>
+        </Button>
       </form>
     </div>
   )

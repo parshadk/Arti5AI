@@ -1,13 +1,24 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import '@toast-ui/editor/dist/toastui-editor.css';
 
 import { Editor } from '@toast-ui/react-editor';
 import { Button } from '@/components/ui/button';
 import { Copy, Download, Share } from 'lucide-react';
 
-function OutputSection() {
+
+interface props{
+    geminiOP:string;
+}
+
+
+function OutputSection({geminiOP}:props) {
 
     const editorRef:any=useRef();
+
+    useEffect(()=>{
+        const editorInstance=editorRef.current.getInstance();
+        editorInstance.setMarkdown(geminiOP);
+    },[geminiOP]);
 
   return (
     <div className='bg-white shadow-lg border rounded-lg'>
@@ -22,11 +33,11 @@ function OutputSection() {
         </div>
         <Editor
             ref={editorRef}
-            initialValue="hello !"
-            previewStyle="vertical"   
-            initialEditType="markdown"
+            initialValue="Output will be displayed here" 
+            height="400px"
+            initialEditType="wysiwyg"
             useCommandShortcut={true}
-            onChange={()=>console.log(editorRef.current.getInstance().getMarkdown())}
+            onChange={()=>(editorRef.current.getInstance().getMarkdown())}
         />
     </div>
   )

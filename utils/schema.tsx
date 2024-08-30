@@ -1,0 +1,11 @@
+import { pgTable,serial, text , varchar } from "drizzle-orm/pg-core";
+
+export const aiOP=pgTable('aiOP',{
+    id:serial('id').primaryKey(),
+    formData:varchar('formData').notNull(),
+    aiResponse:text('aiResponse'),
+    templateSlug:varchar('templateSlug').notNull(),
+    generatedBy:varchar('email').notNull(),
+    generatedAt:varchar('generatedAt')
+
+})
