@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import FormSection from './_components/FormSection'
 import OutputSection from './_components/OutputSection'
 import { TEMPLATE } from '../../_components/TempList'
@@ -8,6 +8,15 @@ import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { chatSession } from '@/utils/aiModel'
+import { db } from '@/utils/db'
+import { aiOP } from '@/utils/schema'
+import { useUser } from '@clerk/nextjs'
+import moment from 'moment'
+import { User } from '@clerk/nextjs/server'
+import { date } from 'drizzle-orm/mysql-core'
+import { TotalUsageContext } from '@/app/(context)/TotalUsageContext'
+import { useRouter } from 'next/navigation'
+
 
 interface PROPS{
     params:{
@@ -23,21 +32,40 @@ function CreateContent(props:PROPS) {
     
     const [geminiOP,setGeminiOP]=useState<string>('');
 
+    const {user}=useUser();
+    const {totalUsage,setTotalUsage}=useContext(TotalUsageContext);
 
+
+    const router=useRouter();
     const GenerateAIcontent=async(formData:any)=>{
         setLoading(true);
-    
+        if(totalUsage>=10000){
+            router.push('dashboard/billing')
+            return;
+        }
         const SelectedPrompt=selectedTemplate?.aiPrompt;
         const finalAIprompt=JSON.stringify(formData)+", "+SelectedPrompt;
         
 
         const result=await chatSession.sendMessage(finalAIprompt);
 
-        console.log(result.response.text());
+        
         setGeminiOP(result?.response.text());
+        await SaveinDB(formData,selectedTemplate?.slug,result?.response.text())
         setLoading(false);
     }
     
+    const SaveinDB=async(formData:any,slug:any,aiOutput:string)=>{
+        const result=await db.insert(aiOP).values({
+            formData:formData,
+            templateSlug:slug,
+            aiResponse:aiOutput,
+            createdBy:user?.primaryEmailAddress?.emailAddress,
+            createdAt:moment().format('dd/mm/yyyy'),
+
+
+        });
+    }
   return (
     <div>
         <div className='p-5'>

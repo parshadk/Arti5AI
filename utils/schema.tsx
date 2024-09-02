@@ -5,7 +5,7 @@ export const aiOP=pgTable('aiOP',{
     formData:varchar('formData').notNull(),
     aiResponse:text('aiResponse'),
     templateSlug:varchar('templateSlug').notNull(),
-    generatedBy:varchar('email').notNull(),
-    generatedAt:varchar('generatedAt')
+    createdBy:varchar('createdBy'),
+    createdAt:varchar('createdAt')
 
 })
