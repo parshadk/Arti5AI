@@ -26,7 +26,7 @@ function OutputSection({geminiOP}:props) {
             <h2 className='font-bold'>Your output</h2>
             <div className='flex gap-2'>
                 <Button className='flex gap-2 '><Download className='w-4 h-4'/> Download  </Button>
-                <Button className='flex gap-2 '><Copy className='w-4 h-4'/> Copy </Button>
+                <Button className='flex gap-2 ' onClick={()=>navigator.clipboard.writeText(geminiOP)}><Copy className='w-4 h-4'/> Copy </Button>
                 <Button className='flex gap-2'><Share className='w-4 h-4'/>Share</Button>
             </div>
             
@@ -44,3 +44,4 @@ function OutputSection({geminiOP}:props) {
 }
 
 export default OutputSection
+

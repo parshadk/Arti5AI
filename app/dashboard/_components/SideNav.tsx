@@ -54,11 +54,11 @@ function SideNav() {
         <hr className='my-5'/>
         <div className='mt-3'>
           
-            {MenuList.map((menu,index)=>(<div className={`flex gap-2 mt-5 mb-2 p-3 hover:bg-primary hover:text-white rounded-lg cursor-pointer 
-                ${path ==menu.path && 'bg-primary text-white'}`} onClick={() => handleMenuItemClick(menu.path)}>
+            {MenuList.map((menu,index)=>(<Link href={menu.path} key={menu.name} className={`flex gap-2 mt-2 mb-2 p-3 hover:bg-primary hover:text-white rounded-lg cursor-pointer 
+                ${path ==menu.path && 'bg-primary text-white'}`} >
                   <menu.icon/>
                   <h2>{menu.name}</h2>
-            </div>))}
+            </Link>))}
           
         </div>
         <div className='absolute bottom-10 left-0 w-full'>
