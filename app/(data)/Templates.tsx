@@ -40,7 +40,7 @@ export default [
         "name": "Instagram Post Caption Generator",
         "desc": "Generate engaging captions for your Instagram posts.",
         "category": "Social Media",
-        "icon": "https://cdn-icons-png.flaticon.com/128/733/733558.png",
+        "icon": "https://cdn-icons-png.flaticon.com/128/733/733614.png",
         "aiPrompt": "Generate 5 engaging Instagram post captions based on the provided photo or topic.",
         "slug": "generate-instagram-caption",
         "form": [
@@ -56,7 +56,7 @@ export default [
         "name": "Instagram Reel Idea Generator",
         "desc": "Generate creative ideas for Instagram Reels.",
         "category": "Social Media",
-        "icon": "https://cdn-icons-png.flaticon.com/128/3820/3820286.png",
+        "icon": "https://cdn-icons-png.flaticon.com/128/733/733614.png",
         "aiPrompt": "Generate 3 creative Instagram Reel ideas based on the given niche.",
         "slug": "generate-instagram-reel",
         "form": [
@@ -476,7 +476,7 @@ export default [
         "name": "YouTube Title Generator",
         "desc": "Generate catchy titles for your YouTube videos.",
         "category": "Video",
-        "icon": "https://cdn-icons-png.flaticon.com/128/1384/1384060.png",
+        "icon": "https://cdn-icons-png.flaticon.com/128/733/733646.png",
         "aiPrompt": "Generate 5 engaging YouTube video titles based on the provided topic.",
         "slug": "generate-youtube-title",
         "form": [
@@ -492,7 +492,7 @@ export default [
         "name": "Video Summary Generator",
         "desc": "Generate a concise summary for your video content.",
         "category": "Video",
-        "icon": "https://cdn-icons-png.flaticon.com/128/1371/1371149.png",
+        "icon": "https://cdn-icons-png.flaticon.com/128/733/733646.png",
         "aiPrompt": "Summarize the video content in 3-4 sentences based on the provided text.",
         "slug": "generate-video-summary",
         "form": [
@@ -508,7 +508,7 @@ export default [
         "name": "YouTube Video Idea Generator",
         "desc": "Generate creative YouTube video ideas based on your niche.",
         "category": "Video",
-        "icon": "https://cdn-icons-png.flaticon.com/128/1384/1384060.png",
+        "icon": "https://cdn-icons-png.flaticon.com/128/733/733646.png",
         "aiPrompt": "Provide 5 unique YouTube video ideas based on the given niche.",
         "slug": "generate-youtube-video-idea",
         "form": [

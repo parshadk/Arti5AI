@@ -7,7 +7,9 @@ function Dashboard() {
   const [userSearchInput,setUserSearchInput]=useState<string>();
   return (
     <div>
-      <SearchList onSearchInput={(value:string)=>setUserSearchInput(value)}/>
+      <div className='flex w-full justify-end'>'
+        <SearchList onSearchInput={(value:string)=>setUserSearchInput(value)}/>
+      </div>
       <TempList userSearchInput={userSearchInput}/>
     </div>
   )

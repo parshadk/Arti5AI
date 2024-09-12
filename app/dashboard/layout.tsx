@@ -1,40 +1,37 @@
 "use client"
 import React, { useState } from 'react'
 import SideNav from './_components/SideNav';
-import Header from './_components/Header';
+
 import { ClerkProvider } from '@clerk/nextjs';
 import { TotalUsageContext } from '../(context)/TotalUsageContext';
+import { UserSubsContext } from '../(context)/UserSubsContext';
+import { UpdateCreditUsageContext } from '../(context)/UpdateCreditUsage';
 
 function layout({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const [totalUsage, setTotalUsage] = useState<Number>(0);
+  const [userSubs, setUserSubs] = useState<boolean>(false);
+  const [updatedCredit, setUpdatedCredit] = useState<any>();
 
-    const [totalUsage,setTotalUsage]=useState<Number>(0)
   return (
-    <TotalUsageContext.Provider value={{totalUsage,setTotalUsage}}>
-      <div className='bg-slate-300 h-screen'>
-      
-        <div className='md:w-64 hidden md:block fixed'>
-      
-          <SideNav/>
-      
-        </div>
-      
-        <div className='md:ml-64'>
-      
-          <Header/>
-      
-          {children}
-      
-        </div>
-
-
-      
-      </div>
+    <TotalUsageContext.Provider value={{ totalUsage, setTotalUsage }}>
+      <UserSubsContext.Provider value={{ userSubs, setUserSubs }}>
+        <UpdateCreditUsageContext.Provider
+          value={{ updatedCredit, setUpdatedCredit }}
+        >
+          <div className="bg-gray-600 h-full">
+            <div className="md:w-64 hidden md:block fixed">
+              <SideNav />
+            </div>
+            <div className="md:ml-64">{children}</div>
+          </div>
+        </UpdateCreditUsageContext.Provider>
+      </UserSubsContext.Provider>
     </TotalUsageContext.Provider>
-  )
+  );
 }
 
 export default layout

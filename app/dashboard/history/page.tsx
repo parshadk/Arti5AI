@@ -35,8 +35,7 @@ async function History() {
   return (
     <div className='m-5 p-5 border rounded-lg bg-white'>
       <h2 className='font-bold text-3xl'>History</h2>
-      <p className='text-gray-600'>Search previous content</p>
-      <div className='grid grid-cols-7 font-bold bg-secondary mt-5 py-3 px-3'>
+      <div className='grid grid-cols-7 font-bold bg-secondary mt-5 py-3 px-3 bg-slate-300 rounded-lg'>
         <h2 className='col-span-2'>Template</h2>
         <h2 className='col-span-2'>AI response</h2>
         <h2>No. of words </h2>
@@ -45,7 +44,7 @@ async function History() {
       </div>
       {HistoryList.map((item:HISTORY,index:number)=>(
         <>
-          <div className='grid grid-cols-7 my-5 py-3 px-3'>
+          <div className='grid grid-cols-7 my-5 py-3 px-3 bg-slate-300 rounded-lg'>
             <h2 className='col-span-2 flex gap-2 items-center'>
               <Image src={GetTemplateName(item?.templateSlug)?.icon} width={25} height={25} alt='icon'/>
               {GetTemplateName(item.templateSlug)?.name}

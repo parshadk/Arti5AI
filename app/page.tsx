@@ -18,7 +18,7 @@ export default function Home() {
     <div>
       <div className="flex flex-row ">
         <div className="flex flex-row ">
-          <Image src={logo} alt="logo"></Image>
+          <Image src={logo} alt="logo" width={100} height={50} className="rounded-md"></Image>
         </div>
         <div className="flex flex-row flex-end">
           <NavigationMenu className="flex flex-row flex-end">
@@ -33,9 +33,9 @@ export default function Home() {
                 Pricing
               </NavigationMenuLink>
             </Link>
-            <Link href="/docs" legacyBehavior passHref>
+            <Link href="/dashboard" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Documentation
+                Get Started
               </NavigationMenuLink>
             </Link>
           </NavigationMenu>

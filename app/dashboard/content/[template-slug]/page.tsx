@@ -16,7 +16,8 @@ import { User } from '@clerk/nextjs/server'
 import { date } from 'drizzle-orm/mysql-core'
 import { TotalUsageContext } from '@/app/(context)/TotalUsageContext'
 import { useRouter } from 'next/navigation'
-
+import { UserSubsContext } from '@/app/(context)/UserSubsContext';
+import { UpdateCreditUsageContext } from '@/app/(context)/UpdateCreditUsage'
 
 interface PROPS{
     params:{
@@ -34,12 +35,18 @@ function CreateContent(props:PROPS) {
 
     const {user}=useUser();
     const {totalUsage,setTotalUsage}=useContext(TotalUsageContext);
+    const {userSubs,setUserSubs}=useContext(UserSubsContext);
+    const {updatedCredit,setUpdatedCredit}=useContext(UpdateCreditUsageContext); 
 
-
+    /** 
+     * 
+     * @param formData
+     * @returns
+    */ 
     const router=useRouter();
     const GenerateAIcontent=async(formData:any)=>{
         setLoading(true);
-        if(totalUsage>=10000){
+        if(totalUsage>=10000 && !userSubs){
             router.push('dashboard/billing')
             return;
         }
@@ -53,6 +60,7 @@ function CreateContent(props:PROPS) {
         setGeminiOP(result?.response.text());
         await SaveinDB(formData,selectedTemplate?.slug,result?.response.text())
         setLoading(false);
+        setUpdatedCredit(Date.now());
     }
     
     const SaveinDB=async(formData:any,slug:any,aiOutput:string)=>{

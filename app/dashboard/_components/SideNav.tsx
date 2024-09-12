@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import UsageCredit from './UsageCredit'
 import Link from 'next/link'
+import { UserButton } from '@clerk/nextjs'
 
 function SideNav() {
     const MenuList=[
@@ -48,10 +49,10 @@ function SideNav() {
   return (
     <div>
       <div className='h-screen  relative p-5 shadow-sm border bg-white' >
-        <div className='flex justify-center p-2'>
-            <Image src={'/txtlogo.png'} alt='logo' width={150} height={150}/>
+        <div className='flex justify-center p-1'>
+            <Image src={'/txtlogo.png'} alt='logo' width={150} height={100}/>
         </div>
-        <hr className='my-5'/>
+        <hr className='my-3'/>
         <div className='mt-3'>
           
             {MenuList.map((menu,index)=>(<Link href={menu.path} key={menu.name} className={`flex gap-2 mt-2 mb-2 p-3 hover:bg-primary hover:text-white rounded-lg cursor-pointer 
@@ -63,7 +64,11 @@ function SideNav() {
         </div>
         <div className='absolute bottom-10 left-0 w-full'>
             <UsageCredit/>
+            <div className=' bg-primary px-3 flex justify-center rounded-full gap-3 items-center text-white py-2 m-5'>
+             <UserButton/><h2>User Profile</h2>
+            </div>
         </div>
+        
       </div>
     </div>
   )

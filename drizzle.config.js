@@ -3,6 +3,6 @@ export default {
   schema: "./utils/schema.tsx",
   dialect: 'postgresql',
   dbCredentials: {
-    url: 'process.env.NEXT_PUBLIC_DRIZZLE_DB_URL',
+    url: 'postgresql://AI%20content%20generator_owner:JyX8kPIe4hqp@ep-cool-frog-a17hv20v.ap-southeast-1.aws.neon.tech/AI%20content%20generator?sslmode=require',
   }
 };

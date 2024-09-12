@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import Razorpay from "razorpay"
 
 export async function POST(req,res){
@@ -14,5 +15,7 @@ export async function POST(req,res){
         notes:{
             key1:'Note'
         }
-    })
+    });
+
+    return NextResponse.json(result);
 }
