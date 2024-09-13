@@ -9,10 +9,15 @@ import { HISTORY } from '../history/page';
 import { TotalUsageContext } from '@/app/(context)/TotalUsageContext';
 import { UserSubsContext } from '@/app/(context)/UserSubsContext';
 import { Result } from 'postcss';
+import { useRouter } from "next/navigation";
 import { UpdateCreditUsageContext } from '@/app/(context)/UpdateCreditUsage';
 
 function UsageCredit() {
 
+  const router = useRouter();
+  const goToBilling = () => {
+    router.push("/dashboard/billing");
+  };
     const {user}=useUser();
     const {totalUsage,setTotalUsage}=useContext(TotalUsageContext);
     const {userSubs,setUserSubs}=useContext(UserSubsContext);
@@ -62,7 +67,7 @@ function UsageCredit() {
         </div>
         <h2 className='text-sm my-2 '>{totalUsage}/{maxWords} credits used</h2>
       </div>
-      <Button className='w-full my-3'>Upgrade</Button>
+      <Button className='w-full my-3' onClick={goToBilling}>Upgrade</Button>
     </div>
   )
 }

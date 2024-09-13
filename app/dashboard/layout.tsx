@@ -22,7 +22,7 @@ function layout({
         <UpdateCreditUsageContext.Provider
           value={{ updatedCredit, setUpdatedCredit }}
         >
-          <div className="bg-gray-600 h-full">
+          <div className="bg-blue-200 h-full">
             <div className="md:w-64 hidden md:block fixed">
               <SideNav />
             </div>

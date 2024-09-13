@@ -69,7 +69,7 @@ function CreateContent(props:PROPS) {
             templateSlug:slug,
             aiResponse:aiOutput,
             createdBy:user?.primaryEmailAddress?.emailAddress,
-            createdAt:moment().format('dd/mm/yyyy'),
+            createdAt:moment().format('L'),
 
 
         });
