@@ -23,11 +23,11 @@ function OutputSection({geminiOP}:props) {
   return (
     <div className='bg-white shadow-lg border rounded-lg'>
         <div className='flex justify-between items-center p-5'>
-            <h2 className='font-bold'>Your output</h2>
+            <h2 className='font-bold'>Output</h2>
             <div className='flex gap-2'>
-                <Button className='flex gap-2 '><Download className='w-4 h-4'/> Download  </Button>
-                <Button className='flex gap-2 ' onClick={()=>navigator.clipboard.writeText(geminiOP)}><Copy className='w-4 h-4'/> Copy </Button>
-                <Button className='flex gap-2'><Share className='w-4 h-4'/>Share</Button>
+                <Button className='flex gap-2 w-full py-6 cursor-pointer hover:scale-110 transition-all border bg-primary p-5 rounded-xl   text-center text-xs font-medium  text-white hover:ring-1 hover:ring-blue-600 focus:outline-none focus:ring'><Download className='w-4 h-4'/> <p className='hidden lg:block'>Download</p>  </Button>
+                <Button className='flex gap-2 w-full py-6 cursor-pointer hover:scale-110 transition-all border bg-primary p-5 rounded-xl   text-center text-xs font-medium  text-white hover:ring-1 hover:ring-blue-600 focus:outline-none focus:ring' onClick={()=>navigator.clipboard.writeText(geminiOP)}><Copy className='w-4 h-4'/> <p className='hidden lg:block'>Copy</p> </Button>
+                <Button className='flex gap-2 w-full py-6 cursor-pointer hover:scale-110 transition-all border bg-primary p-5 rounded-xl   text-center text-xs font-medium  text-white hover:ring-1 hover:ring-blue-600 focus:outline-none focus:ring'><Share className='w-4 h-4'/><p className='hidden lg:block'>Share</p></Button>
             </div>
             
         </div>

@@ -9,7 +9,7 @@ import React from 'react';
 const HistoryItem = (aiResponse:any) => {
     return (
         <h2 className='w-4 h-4'>
-            <Button className='flex flex-row gap-2 ' onClick={() => navigator.clipboard.writeText(aiResponse)}>
+            <Button className='flex flex-row gap-2 cursor-pointer hover:scale-105 transition-all w-full border bg-primary px-8 py-4 rounded-xl   text-center text-sm font-medium  text-white hover:ring-1 hover:ring-blue-600 focus:outline-none focus:ring' onClick={() => navigator.clipboard.writeText(aiResponse)}>
                 Copy
             </Button>
         </h2>

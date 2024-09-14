@@ -33,9 +33,9 @@ async function History() {
   }
   
   return (
-    <div className=' p-5 rounded-full bg-gray '>
+    <div className=' p-3 rounded-full bg-gray '>
       <h2 className='font-bold text-3xl'>History</h2>
-      <div className='grid grid-cols-8 font-bold bg-secondary m-3 p-3 gap-4 bg-gray-300 rounded-lg'>
+      <div className='grid grid-cols-8 font-bold bg-secondary m-3 p-3 gap-3 bg-gray-300 rounded-lg cursor-pointer hover:scale-105 transition-all  border-black'>
         <h2 className='col-span-2'>Template</h2>
         <h2 className='col-span-3'>AI response</h2>
         <h2>No. of words </h2>
@@ -44,12 +44,12 @@ async function History() {
       </div>
       {HistoryList.map((item:HISTORY,index:number)=>(
         <>
-          <div className='grid grid-cols-8 m-3 p-3 gap-4 bg-gray-300 rounded-lg'>
+          <div className='grid grid-cols-8 m-3 p-3 gap-3 bg-gray-300 rounded-lg cursor-pointer hover:scale-105 transition-all  border-black'>
             <h2 className='col-span-2 flex gap-2 items-center'>
               <Image src={GetTemplateName(item?.templateSlug)?.icon} width={25} height={25} alt='icon'/>
               {GetTemplateName(item.templateSlug)?.name}
             </h2>
-            <h2 className=' col-span-3 line-clamp-3'>{item?.aiResponse}</h2>
+            <h2 className=' col-span-3 line-clamp-4'>{item?.aiResponse}</h2>
             <h2>{item?.aiResponse.length}</h2>
             <h2>{item.createdAt}</h2>
             <HistoryItem aiResponse={item.aiResponse} />

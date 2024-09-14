@@ -2,13 +2,14 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import { Check, Loader2 } from "lucide-react";
-import { UserSubscription } from "@/utils/schema";
+import { userSubscription } from "@/utils/schema";
 import { db } from "@/utils/db";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment";
 import { Button } from "@/components/ui/button";
 import { useRouter } from 'next/navigation'
-import { UserSubsContext } from '@/app/(context)/UserSubsContext';
+import { UserSubscriptionContext } from '@/app/(context)/UserSubscriptionContext';
+import Razorpay from 'razorpay';
 
 function billing() {
 
@@ -16,7 +17,7 @@ function billing() {
   const router=useRouter();
   const {user}=useUser();
 
-  const {userSubs,setUserSubs}=useContext(UserSubsContext);
+  const {userSubscription,setUserSubscription}=useContext(UserSubscriptionContext);
   const goToDashboard=()=>{
     router.push('/dashboard');
   }
@@ -40,6 +41,7 @@ const OnPayment=(subId:string)=>{
     description:"Monthly Subscription",
     handler:async(resp:any)=>{
       console.log(resp);
+      alert(resp.razorpay_payment_id);
       if(resp){
         SaveSubcription(resp?.razorpay_payment_id);
       }
@@ -52,7 +54,7 @@ const OnPayment=(subId:string)=>{
 }
 
 const SaveSubcription=async(paymentId:string)=>{ 
-  const result=await db.insert(UserSubscription).values({
+  const result=await db.insert(userSubscription).values({
     email:user?.primaryEmailAddress?.emailAddress,
     userName:user?.fullName,
     active:true,
@@ -105,7 +107,7 @@ const SaveSubcription=async(paymentId:string)=>{
               </li>
             </ul>
             <Button onClick={goToDashboard} className="mt-8 flex w-full rounded-full border bg-primary py-6   text-center text-sm font-medium  text-white hover:ring-1 hover:ring-indigo-600 focus:outline-none focus:ring  active:text-indigo-500">
-              <span>Get Started</span>
+              <span >Get Started</span>
             </Button>
           </div>
         
@@ -143,7 +145,7 @@ const SaveSubcription=async(paymentId:string)=>{
             </ul>
             <Button disabled={loading} onClick={ ()=> CreateSubscription()}
             className="mt-8 flex  w-full gap-2 rounded-full border bg-primary  py-6 text-center text-sm font-medium  text-white hover:ring-1 hover:ring-indigo-600 focus:outline-none focus:ring  active:text-indigo-500">
-              <span >{userSubs?'Active Plan':'Get Started'}</span>
+              <span >{userSubscription?'Active Plan':'Get Started'}</span>
               {loading&&<Loader2 className="animate-spin"/>}
               
             </Button>

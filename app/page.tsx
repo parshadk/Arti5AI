@@ -237,7 +237,7 @@ export default function Home() {
                     </ul>
                   </CardContent>
                   <CardContent>
-                    <Button className="cursor-pointer hover:scale-105 transition-all w-full border bg-primary p-5 rounded-full   text-center text-sm font-medium  text-white hover:ring-1 hover:ring-blue-600 focus:outline-none focus:ring  active:text-blue-500 ">
+                    <Button className="cursor-pointer hover:scale-105 transition-all w-full border bg-primary p-5 rounded-full   text-center text-sm font-medium  text-white hover:ring-1 hover:ring-blue-600 focus:outline-none focus:ring  active:text-blue-500 " onClick={goToDashboard}>
                       {plan === "Enterprise" ? "Contact Sales" : "Get Started"}
                     </Button>
                   </CardContent>

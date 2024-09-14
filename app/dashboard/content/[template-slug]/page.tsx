@@ -16,7 +16,7 @@ import { User } from '@clerk/nextjs/server'
 import { date } from 'drizzle-orm/mysql-core'
 import { TotalUsageContext } from '@/app/(context)/TotalUsageContext'
 import { useRouter } from 'next/navigation'
-import { UserSubsContext } from '@/app/(context)/UserSubsContext';
+import { UserSubscriptionContext } from '@/app/(context)/UserSubscriptionContext';
 import { UpdateCreditUsageContext } from '@/app/(context)/UpdateCreditUsage'
 
 interface PROPS{
@@ -35,7 +35,7 @@ function CreateContent(props:PROPS) {
 
     const {user}=useUser();
     const {totalUsage,setTotalUsage}=useContext(TotalUsageContext);
-    const {userSubs,setUserSubs}=useContext(UserSubsContext);
+    const {userSubscription,setUserSubscription}=useContext(UserSubscriptionContext);
     const {updatedCredit,setUpdatedCredit}=useContext(UpdateCreditUsageContext); 
 
     /** 
@@ -46,7 +46,7 @@ function CreateContent(props:PROPS) {
     const router=useRouter();
     const GenerateAIcontent=async(formData:any)=>{
         setLoading(true);
-        if(totalUsage>=10000 && !userSubs){
+        if(totalUsage>=10000 && !userSubscription){
             router.push('dashboard/billing')
             return;
         }
@@ -78,14 +78,14 @@ function CreateContent(props:PROPS) {
     <div>
         <div className='p-5'>
             <Link href={"/dashboard"}>
-                <Button><ArrowLeft/>Back</Button>
+                <Button className='cursor-pointer hover:scale-110 transition-all  border bg-primary p-5 rounded-2xl   text-center text-sm font-medium  text-white hover:ring-1 hover:ring-blue-600 focus:outline-none focus:ring'><ArrowLeft/>Back</Button>
             </Link>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 p-5'>
-            <div>
+            <div className='grid grid-cols-1 min-w-9 md:col-span-1'>
                 <FormSection selectedTemplate={selectedTemplate} userFormInput={(v:any)=>GenerateAIcontent(v)} loading={loading}/>
             </div>
-            <div className='col-span-2'>
+            <div className=' grid grid-cols-1   md:col-span-2'>
                 <OutputSection geminiOP={geminiOP}/>
             </div>    
         </div>

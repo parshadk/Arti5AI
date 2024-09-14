@@ -28,7 +28,7 @@ function FormSection({selectedTemplate,userFormInput,loading}:PROPS) {
     }
 
   return (
-    <div className='p-5 shadow-md border rounded-lg bg-white '>
+    <div className='p-5 flex flex-col shadow-md border rounded-lg bg-white '>
         {/* @ts-ignore */}
       <Image src={selectedTemplate?.icon} alt='icon' width={50} height={50}/>
       <h2 className='font-bold text-2xl mb-2 text-primary'>{selectedTemplate?.name}</h2>
@@ -41,13 +41,13 @@ function FormSection({selectedTemplate,userFormInput,loading}:PROPS) {
 
                 <label className='font-bold'>{item.label}</label>
 
-                {item.field=='input'? <Input name={item.name} required={item?.required} onChange={handleInputChange}/> 
-                : item.field=='textarea'?<Textarea name={item.name} required={item?.required} onChange={handleInputChange}/> : null }
+                {item.field=='input'? <Input name={item.name} required={item?.required} onChange={handleInputChange} className={`border-black cursor-pointer hover:scale-105 transition-all`}/> 
+                : item.field=='textarea'?<Textarea name={item.name} required={item?.required} onChange={handleInputChange} className={`border-black cursor-pointer hover:scale-105 transition-all`}/> : null }
             </div>
         ))}
 
-        <Button type='submit' className='w-full py-6' disabled={loading}>
-          <div className='gap-2 flex'>
+        <Button type='submit' className='w-full py-6 cursor-pointer hover:scale-105 transition-all border bg-primary p-5 rounded-xl   text-center text-sm font-medium  text-white hover:ring-1 hover:ring-blue-600 focus:outline-none focus:ring' disabled={loading}>
+          <div className='gap-2 flex '>
             {loading && <Loader2Icon className='animate-spin'/>}
             Generate Content  
           </div>

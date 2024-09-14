@@ -10,7 +10,7 @@ export const aiOP=pgTable('aiOP',{
 
 });
 
-export const UserSubscription=pgTable('userSubscription',{
+export const userSubscription=pgTable('userSubscription',{
     id:serial('id').primaryKey(),
     email:varchar('email'),
     userName:varchar('userName'),

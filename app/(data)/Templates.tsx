@@ -37,6 +37,28 @@ export default [
         ]
     },
     {
+        "name": "Resume Summary Generator",
+        "desc": "Generate a professional summary for your resume based on your skills and experience.",
+        "category": "Resume",
+        "icon": "",
+        "aiPrompt": "Write a professional summary for your resume based on the provided skills and experience.",
+        "slug": "generate-resume-summary",
+        "form": [
+            {
+                "label": "Enter your skills",
+                "field": "input",
+                "name": "skills",
+                "required": true
+            },
+            {
+                "label": "Enter your experience",
+                "field": "textarea",
+                "name": "experience",
+                "required": true
+            }
+        ]
+    },    
+    {
         "name": "Instagram Post Caption Generator",
         "desc": "Generate engaging captions for your Instagram posts.",
         "category": "Social Media",
@@ -839,7 +861,260 @@ export default [
                 "required": true
             }
         ]
+    },
+    {
+        "name": "Fitness Plan Creator",
+        "desc": "Create a personalized fitness plan based on your goals and current fitness level.",
+        "category": "Fitness",
+        "icon": "",
+        "aiPrompt": "Generate a personalized fitness plan based on your goals and current fitness level.",
+        "slug": "create-fitness-plan",
+        "form": [
+            {
+                "label": "Enter your fitness goals",
+                "field": "input",
+                "name": "goals",
+                "required": true
+            },
+            {
+                "label": "Enter your current fitness level",
+                "field": "input",
+                "name": "fitnessLevel",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "Marketing Strategy Planner",
+        "desc": "Create a comprehensive marketing strategy based on your business goals and target audience.",
+        "category": "Marketing",
+        "icon": "",
+        "aiPrompt": "Generate a comprehensive marketing strategy based on the provided business goals and target audience.",
+        "slug": "create-marketing-strategy",
+        "form": [
+            {
+                "label": "Enter your business goals",
+                "field": "textarea",
+                "name": "businessGoals",
+                "required": true
+            },
+            {
+                "label": "Enter your target audience",
+                "field": "input",
+                "name": "targetAudience",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "Podcast Episode Outline",
+        "desc": "Create an outline for your podcast episode based on the topic and guest details.",
+        "category": "Podcast",
+        "icon": "",
+        "aiPrompt": "Generate an outline for a podcast episode based on the given topic and guest details.",
+        "slug": "create-podcast-outline",
+        "form": [
+            {
+                "label": "Enter your podcast topic",
+                "field": "input",
+                "name": "topic",
+                "required": true
+            },
+            {
+                "label": "Enter guest details",
+                "field": "textarea",
+                "name": "guestDetails",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "Business Proposal Generator",
+        "desc": "Create a detailed business proposal based on your project requirements and objectives.",
+        "category": "Business",
+        "icon": "",
+        "aiPrompt": "Generate a detailed business proposal based on the provided project requirements and objectives.",
+        "slug": "generate-business-proposal",
+        "form": [
+            {
+                "label": "Enter project requirements",
+                "field": "textarea",
+                "name": "projectRequirements",
+                "required": true
+            },
+            {
+                "label": "Enter project objectives",
+                "field": "input",
+                "name": "projectObjectives",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "Ebook Title Generator",
+        "desc": "Generate catchy titles for your ebook based on its genre and main theme.",
+        "category": "Ebook",
+        "icon": "",
+        "aiPrompt": "Generate catchy ebook titles based on the provided genre and main theme.",
+        "slug": "generate-ebook-title",
+        "form": [
+            {
+                "label": "Enter your ebook genre",
+                "field": "input",
+                "name": "genre",
+                "required": true
+            },
+            {
+                "label": "Enter your ebook main theme",
+                "field": "input",
+                "name": "mainTheme",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "Personal Budget Planner",
+        "desc": "Create a personalized budget plan based on your income and expenses.",
+        "category": "Finance",
+        "icon": "",
+        "aiPrompt": "Generate a personalized budget plan based on the provided income and expense details.",
+        "slug": "create-personal-budget",
+        "form": [
+            {
+                "label": "Enter your monthly income",
+                "field": "input",
+                "name": "income",
+                "required": true
+            },
+            {
+                "label": "Enter your monthly expenses",
+                "field": "textarea",
+                "name": "expenses",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "Product Description Generator",
+        "desc": "Generate compelling product descriptions based on your product details.",
+        "category": "E-commerce",
+        "icon": "",
+        "aiPrompt": "Generate a compelling product description based on the provided product details.",
+        "slug": "generate-product-description",
+        "form": [
+            {
+                "label": "Enter product name",
+                "field": "input",
+                "name": "productName",
+                "required": true
+            },
+            {
+                "label": "Enter product features",
+                "field": "textarea",
+                "name": "productFeatures",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "Nonprofit Grant Proposal Generator",
+        "desc": "Create a grant proposal for your nonprofit organization based on your project details.",
+        "category": "Nonprofit",
+        "icon": "",
+        "aiPrompt": "Generate a grant proposal based on the provided project details for your nonprofit organization.",
+        "slug": "generate-nonprofit-grant-proposal",
+        "form": [
+            {
+                "label": "Enter project details",
+                "field": "textarea",
+                "name": "projectDetails",
+                "required": true
+            },
+            {
+                "label": "Enter funding needs",
+                "field": "input",
+                "name": "fundingNeeds",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "Learning Course Outline Creator",
+        "desc": "Create a detailed outline for a learning course based on your subject and target audience.",
+        "category": "Education",
+        "icon": "",
+        "aiPrompt": "Generate a detailed outline for a learning course based on the provided subject and target audience.",
+        "slug": "create-learning-course-outline",
+        "form": [
+            {
+                "label": "Enter course subject",
+                "field": "input",
+                "name": "subject",
+                "required": true
+            },
+            {
+                "label": "Enter target audience",
+                "field": "input",
+                "name": "targetAudience",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "Fitness Meal Plan Generator",
+        "desc": "Create a personalized meal plan based on your fitness goals and dietary preferences.",
+        "category": "Fitness",
+        "icon": "",
+        "aiPrompt": "Generate a personalized meal plan based on the provided fitness goals and dietary preferences.",
+        "slug": "generate-fitness-meal-plan",
+        "form": [
+            {
+                "label": "Enter your fitness goals",
+                "field": "input",
+                "name": "fitnessGoals",
+                "required": true
+            },
+            {
+                "label": "Enter dietary preferences",
+                "field": "textarea",
+                "name": "dietaryPreferences",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "Tech Startup Pitch Deck Generator",
+        "desc": "Create a pitch deck for your tech startup based on your business idea and goals.",
+        "category": "Startup",
+        "icon": "",
+        "aiPrompt": "Generate a pitch deck for your tech startup based on the provided business idea and goals.",
+        "slug": "generate-tech-startup-pitch-deck",
+        "form": [
+            {
+                "label": "Enter business idea",
+                "field": "textarea",
+                "name": "businessIdea",
+                "required": true
+            },
+            {
+                "label": "Enter business goals",
+                "field": "input",
+                "name": "businessGoals",
+                "required": true
+            }
+        ]
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
       
 

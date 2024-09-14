@@ -1,13 +1,13 @@
 "use client"
 import { Button } from '@/components/ui/button'
 import { db } from '@/utils/db';
-import { aiOP, UserSubscription } from '@/utils/schema';
+import { aiOP, userSubscription } from '@/utils/schema';
 import { useUser } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm';
 import React, { useContext, useEffect, useState } from 'react'
 import { HISTORY } from '../history/page';
 import { TotalUsageContext } from '@/app/(context)/TotalUsageContext';
-import { UserSubsContext } from '@/app/(context)/UserSubsContext';
+import { UserSubscriptionContext } from '@/app/(context)/UserSubscriptionContext';
 import { Result } from 'postcss';
 import { useRouter } from "next/navigation";
 import { UpdateCreditUsageContext } from '@/app/(context)/UpdateCreditUsage';
@@ -20,28 +20,33 @@ function UsageCredit() {
   };
     const {user}=useUser();
     const {totalUsage,setTotalUsage}=useContext(TotalUsageContext);
-    const {userSubs,setUserSubs}=useContext(UserSubsContext);
+    const {userSubscription,setUserSubscription}=useContext(UserSubscriptionContext);
     const {updatedCredit,setUpdatedCredit}=useContext(UpdateCreditUsageContext);
     const[maxWords,setMaxWords]=useState(10000);
     const fetchData=async()=>{
-        {/*@ts-ignore*/}
+      {/*@ts-ignore */}
         const result:HISTORY[]=await db.select().from(aiOP).where(eq(aiOP.createdBy,user?.primaryEmailAddress?.emailAddress));
         
         GetTotalUsage(result)
     }
 
-    const IsUserSubs=async()=>{
-      {/*@ts-ignore*/}
-      const result=await db.select().from(UserSubscription).where(eq(UserSubscription.email,user?.primaryEmailAddress?.emailAddress));
-
-      if(result){
-        setUserSubs(true);
-        setMaxWords(100000);
+    const IsUserSubscribe=async()=>{
+      try {
+        const result = await db.select().from(userSubscription).where(eq(userSubscription.email, user?.primaryEmailAddress?.emailAddress)).execute();
+    
+        if (result.length > 0) { 
+          setUserSubscription(true);
+          setMaxWords(100000);
+        } else {
+          setUserSubscription(false); 
+        }
+      } catch (error) {
+        console.error("Error in IsUserSubscribe:", error);
       }
     }
     useEffect(()=>{
         user&&fetchData();
-        user&&IsUserSubs();
+        user&&IsUserSubscribe();
     },[user]);
 
     useEffect(()=>{
