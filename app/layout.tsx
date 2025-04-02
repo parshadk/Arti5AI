@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     //@ts-ignore
-    <ClerkProvider className="bg-blue-200">
+    <ClerkProvider className="bg-blue-200" >
       <html lang="en" className="bg-blue-200">
         <body className={inter.className}>{children}</body>
       </html>
