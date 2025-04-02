@@ -33,7 +33,7 @@ async function History() {
   }
   
   return (
-    <div className=' p-3 rounded-full bg-gray '>
+    <div className='mt-16 p-3 rounded-full bg-gray '>
       <h2 className='font-bold text-3xl'>History</h2>
       <div className='grid grid-cols-8 font-bold bg-secondary m-3 p-3 gap-3 bg-gray-300 rounded-lg cursor-pointer hover:scale-105 transition-all  border-black'>
         <h2 className='col-span-2'>Template</h2>

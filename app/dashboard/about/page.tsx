@@ -3,7 +3,7 @@ import { Github, Linkedin, Twitter, Instagram } from 'lucide-react'
 
 export default function AboutMe() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-150 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="mt-16 min-h-screen bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-150 flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl w-full space-y-8">
         <div className="md:flex md:space-x-8">
           <div className="md:w-1/2 bg-white p-10 rounded-xl shadow-md mb-8 md:mb-0 bg-gradient-to-br from-indigo-100 to-blue-200 hover:ring-1 hover:ring-gray-600 focus:outline-none focus:ring cursor-pointer hover:scale-105 transition-all">
