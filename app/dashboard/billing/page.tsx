@@ -70,6 +70,7 @@ const SaveSubcription=async(paymentId:string)=>{
 
   return (
     <div className="bg-blue-200">
+      
       <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       <div className="mx-auto  max-w-3xl px-2 py-4 sm:px-6 sm:py-12 lg:px-8  rounded-xl">
       <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Pricing</h2>

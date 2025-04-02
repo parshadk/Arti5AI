@@ -47,7 +47,7 @@ function CreateContent(props:PROPS) {
     const GenerateAIcontent=async(formData:any)=>{
         setLoading(true);
         if(totalUsage>=10000 && !userSubscription){
-            router.push('dashboard/billing')
+            router.push('/dashboard/billing')
             return;
         }
         const SelectedPrompt=selectedTemplate?.aiPrompt;

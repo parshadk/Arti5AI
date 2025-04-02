@@ -1,5 +1,5 @@
 "use client"
-import { History, Home, Info, Settings2,  User, Wallet } from 'lucide-react'
+import { History, Home, Info, Settings2,  User, Wallet, } from 'lucide-react'
 import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
@@ -49,10 +49,10 @@ function SideNav() {
   return (
     <div>
       <div className='h-screen  relative p-5 shadow-sm border bg-gradient-to-br from-green-100  via-indigo-200  to-blue-200' >
-        <div className='flex justify-center p-1'>
-            <Image src={'/txtlogo.png'} alt='logo' width={150} height={100}/>
+        {/* <div className='flex justify-center p-1 '>
+            <Image src={'/txtlogo.png'} alt='logo' width={150} height={90}/>
         </div>
-        <hr className='my-3'/>
+        <hr className='my-3'/> */}
         <div className='mt-3'>
           
             {MenuList.map((menu,index)=>(<Link href={menu.path} key={menu.name} className={`flex gap-2 mt-2 mb-2 p-3 hover:bg-primary hover:text-white rounded-lg cursor-pointer 
@@ -62,7 +62,7 @@ function SideNav() {
             </Link>))}
           
         </div>
-        <div className='absolute bottom-10 left-0 w-full'>
+        <div className='absolute bottom-10 left-0 w-full pb-10'>
             <UsageCredit/>
             <div className=' bg-primary px-3 flex justify-center rounded-full gap-3 items-center text-white py-2 m-5'>
              <UserButton/><h2>User Profile</h2>

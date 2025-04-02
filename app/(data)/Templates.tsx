@@ -40,7 +40,7 @@ export default [
         "name": "Resume Summary Generator",
         "desc": "Generate a professional summary for your resume based on your skills and experience.",
         "category": "Resume",
-        "icon": "",
+        "icon": "https://cdn-icons-png.flaticon.com/128/149/149347.png",
         "aiPrompt": "Write a professional summary for your resume based on the provided skills and experience.",
         "slug": "generate-resume-summary",
         "form": [
@@ -94,7 +94,7 @@ export default [
         "name": "TikTok Idea Generator",
         "desc": "Generate trending TikTok video ideas.",
         "category": "Social Media",
-        "icon": "https://cdn-icons-png.flaticon.com/128/733/733585.png",
+        "icon": "",
         "aiPrompt": "Generate 3 trending TikTok video ideas based on the given topic.",
         "slug": "generate-tiktok-idea",
         "form": [
@@ -378,7 +378,7 @@ export default [
         "name": "Reddit Post Generator",
         "desc": "Generate a Reddit post based on your topic.",
         "category": "Social Media",
-        "icon": "https://cdn-icons-png.flaticon.com/128/3670/3670154.png",
+        "icon": "",
         "aiPrompt": "Generate a Reddit post based on the provided topic and subreddit.",
         "slug": "generate-reddit-post",
         "form": [
@@ -546,7 +546,7 @@ export default [
         "name": "LinkedIn Post Generator",
         "desc": "Generate professional LinkedIn post ideas.",
         "category": "Social Media",
-        "icon": "https://cdn-icons-png.flaticon.com/128/1384/1384062.png",
+        "icon": "",
         "aiPrompt": "Generate 3 LinkedIn post ideas based on the provided topic and industry.",
         "slug": "generate-linkedin-post",
         "form": [
@@ -811,7 +811,7 @@ export default [
         "name": "Instagram Thread Generator",
         "desc": "Generate an engaging instagram thread based on your topic.",
         "category": "Social Media",
-        "icon": "https://cdn-icons-png.flaticon.com/128/733/733579.png",
+        "icon": "https://cdn-icons-png.flaticon.com/128/733/733614.png",
         "aiPrompt": "Generate a Intsagram thread based on the provided topic.",
         "slug": "generate-instagram-thread",
         "form": [
